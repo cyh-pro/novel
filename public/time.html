@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        function rTime(date) {
+            var json_date = new Date(date).toJSON();
+            return new Date(new Date(json_date) + 8 * 3600 * 1000).toISOString().replace(/T/g, ' ').replace(
+                /\.[\d]{3}Z/, '')
+        }
+        let dates = rTime('2020-06-27T14:20:27.000000Z');
+        console.log(dates) // 2020-06-27 14:20:27
+        var sT = '2020-12-30T02:02:11.066Z';
+        var time = getTime(sT);
+        console.log(time)
+
+        function getTime(v) {
+            var d, h, m, s, second, now;
+            var now = new Date();
+            var deadline = new Date(v);
+            var second = (now - deadline) / 1000;
+            if (second < 0) return;
+                d = Math.floor(second / (60 * 60 * 24)), //计算天数
+                h = Math.floor(second / (60 * 60) % 24), //计算小时数
+                m = Math.floor(second / (60) % 60), //计算分钟数
+            console.log(m, h, s)
+            if (d > 0) {
+                return d + "天前更新";
+            } else if (h > 0) {
+                return h + "小时前更新";
+            } else {
+                return m + "分钟前更新";
+            }
+
+        }
+  // str1 = str1.replace(/(\[|\])/gi, "");
+
+        str='全部章节 第七百五十三章   王者陨落！ ';
+      str=  str.replace(/全部章节/gi,"")
+      console.log(str)
+    </script>
+</body>
+
+</html>
